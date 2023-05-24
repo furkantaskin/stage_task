@@ -14,7 +14,7 @@ class Car(models.Model):
         return self.plate_number
 
 
-class Operations(models.Model):
+class Operation(models.Model):
     __operation_code = f"{datetime.date.today().strftime('%Y%m%d')}-{uuid4()}"
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     operation_date = models.DateField(default=datetime.date.today())
