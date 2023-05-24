@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Araç Ekle</title>
+</head>
+<body>
+
+<main>
+    <h1>Araç Ekle</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="plate">
+            <input type="text" id="plate" name="plate" placeholder="Plaka Numarası">
+        </label>
+        <label for="brand">
+        <input type="text" id="brand" name="brand" placeholder="Marka">
+        </label>
+        <label for="model">
+        <input type="text" id="model" name="model" placeholder="Model">
+        </label>
+        <label for="year">
+            <input type="number" min="1950" max="2023" step="1" id="year" name="year" placeholder="Yıl">
+        </label>
+        <label for="color">
+            <input type="color" id="color" name="color" placeholder="Renk">
+        </label>
+        <button type="submit">Ekle</button>
+    </form>
+</main>
+</body>
+</html>
