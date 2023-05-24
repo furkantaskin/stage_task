@@ -8,7 +8,7 @@ class Car(models.Model):
     model = models.CharField(max_length=40)
     plate_number = models.CharField(max_length=10, unique=True)
     year = models.PositiveIntegerField(default=datetime.date.today().year)
-    color = models.CharField()
+    color = models.CharField(max_length=20)
 
     def __str__(self):
         return self.plate_number
