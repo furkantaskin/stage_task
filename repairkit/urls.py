@@ -2,6 +2,7 @@ from django.urls import path
 from .views import add_car, home, cars, operations, add_operation, delete_operation, edit_operation
 
 urlpatterns = [
+    path('', cars, name='index'),
     path('add_car', add_car, name='add_car'),
     path('home', home, name="home"),
     path('cars', cars, name="cars"),
