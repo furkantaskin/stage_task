@@ -23,3 +23,6 @@ class Operation(models.Model):
 
     def __str__(self):
         return f"{self.car.plate_number} - {self.operation_date}"
+
+    def get_operation_code(self):
+        return self.__operation_code
