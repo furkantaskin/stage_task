@@ -13,6 +13,9 @@
     <h1>Araç Ekle</h1>
     <form method="post">
         {% csrf_token %}
+        {% if error_message %}
+        <p><strong>{{error_message}}</strong></p>
+        {% endif %}
         <label for="plate">
             <input type="text" id="plate" name="plate" placeholder="Plaka Numarası">
         </label>
