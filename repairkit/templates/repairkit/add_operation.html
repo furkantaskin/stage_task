@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>İşlem Ekle</title>
+</head>
+<body>
+
+<main>
+    <h1>İşlem Ekle</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if error_message %}
+        <p><strong>{{error_message}}</strong></p>
+        {% endif %}
+        <label for="car">
+            <select name="car" id="car">
+                {% for car in cars %}
+                <option value="{{car.id}}">{{car.plate_number}}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <label for="date">
+            <input type="date" name="date" id="date" placeholder="İşlem Tarihi">
+        </label>
+        <label for="desc">
+            <input type="text" name="desc" id="desc" placeholder="Açıklama">
+        </label>
+        <button type="submit">Ekle</button>
+    </form>
+</main>
+</body>
+</html>

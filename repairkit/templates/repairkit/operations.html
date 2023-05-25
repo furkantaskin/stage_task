@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>İşlemler</title>
+</head>
+<body>
+<main>
+    <a href="{% url 'cars' %}">Araçlarıma git</a>
+    <hr>
+<a href="{% url 'add_operation' %}">Yeni Kayıt Ekle</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>İşlem Kodu</th>
+            <th>Plaka Numarası</th>
+            <th>İşlem Tarihi</th>
+            <th>Açıklama</th>
+            <th>İşlemler</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for operation in operations %}
+        <tr>
+            <td>{{operation.get_operation_code}}</td>
+            <td>{{operation.car.plate_number}}</td>
+            <td>{{operation.operation_date}}</td>
+            <td>{{operation.description}}</td>
+            <td>
+
+                 <form action="{% url 'delete_operation' operation.id %}">
+                    {% csrf_token %}
+                    <button type="submit">İşlemi sil</button>
+                </form>
+                <a href="{% url 'edit_operation' operation.id %}">İşlemi düzenle</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
